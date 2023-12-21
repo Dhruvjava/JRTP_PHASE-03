@@ -1,0 +1,18 @@
+#Server Config
+server:
+  port: 9999
+
+
+# DB Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/registrations
+    username: root
+    password: root
+
+# JPA Config
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
