@@ -5,6 +5,12 @@ services:
     container_name: eureka-server
     ports:
       - "8761:8761"
+    healthcheck:
+      test: "curl --fail --silent localhost:8761/actuator/health/readiness | grep UP || exit 0"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
     environment:
       - SERVER_PORT=8761
       - APP_NAME=BOOKING-EUREKA-SERVER
@@ -20,7 +26,8 @@ services:
       - APP_NAME=BOOKING-SERVICE
       - EUREKA_URL=http://eureka-server:8761/eureka
     depends_on:
-      - eureka-server
+      eureka-server:
+        condition: service_healthy
   payment-service:
     build: ./payment-service
     container_name: payment-service
@@ -31,7 +38,8 @@ services:
       - APP_NAME=PAYMENT-SERVICE
       - EUREKA_URL=http://eureka-server:8761/eureka
     depends_on:
-      - eureka-server
+      eureka-server:
+        condition: service_healthy
   notification-service:
     build: ./notification-service
     container_name: notification-service
@@ -42,4 +50,17 @@ services:
       - APP_NAME=NOTIFICATION-SERVICE
       - EUREKA_URL=http://eureka-server:8761/eureka
     depends_on:
-      - eureka-server
+      eureka-server:
+        condition: service_healthy
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "80:80"
+    environment:
+      - SERVER_PORT=80
+      - APP_NAME=API-GATEWAY
+      - EUREKA_URL=http://eureka-server:8761/eureka
+    depends_on:
+      eureka-server:
+        condition: service_healthy
