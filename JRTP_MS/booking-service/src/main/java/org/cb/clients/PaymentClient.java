@@ -1,4 +1,4 @@
-package org.cb.booking.clients;
+package org.cb.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
