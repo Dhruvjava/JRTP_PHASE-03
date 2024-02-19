@@ -14,9 +14,20 @@ spring:
           uri: lb://BOOKING-SERVICE
           predicates:
             - Path=/api/booking/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: BOOKING-SERVICE-FALLBACK
+                fallbackUri: forward:/booking-fallback
 
 #Eureka Config
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
