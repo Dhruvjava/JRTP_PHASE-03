@@ -1,18 +1,32 @@
 eureka:
-    client:
-        fetch-registry: ${EUREKA_FETCH:false}
-        register-with-eureka: ${EUREKA_REGISTER:false}
+  client:
+    fetch-registry: ${EUREKA_FETCH:false}
+    register-with-eureka: ${EUREKA_REGISTER:false}
 logging:
-    file:
-        path: eureka.log
-    pattern:
-        level:
-            org:
-                cb: DEBUG
-                cb.booking: ERROR
-                springframework: DEBUG
+  file:
+    path: eureka.log
+  pattern:
+    level:
+      org:
+        cb: DEBUG
+        cb.booking: ERROR
+        springframework: DEBUG
 server:
-    port: ${SERVER_PORT:8761}
+  port: ${SERVER_PORT:8761}
 spring:
-    application:
-        name: ${APP_NAME:BOOKING-EUREKA-SERVER}
+  application:
+    name: ${APP_NAME:BOOKING-EUREKA-SERVER}
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
