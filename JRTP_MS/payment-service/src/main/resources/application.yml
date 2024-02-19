@@ -7,3 +7,9 @@ server:
 spring:
     application:
         name: ${APP_NAME:PAYMENT-SERVICE}
+
+management:
+    endpoints:
+        web:
+            exposure:
+                exclude: "*"
