@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.cb.bookings.enums.BookingStatus;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Validated
 public class BookingRq {
 
     private UUID id;

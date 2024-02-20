@@ -7,6 +7,15 @@ server:
 spring:
     application:
         name: ${APP_NAME:BOOKING-SERVICE}
+    datasource:
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bookingservice?createDatabaseIfNotExist=true
+        username: root
+        password: root
+    jpa:
+        hibernate:
+          ddl-auto: create
+        show-sql: true
 
 management:
     endpoints:
