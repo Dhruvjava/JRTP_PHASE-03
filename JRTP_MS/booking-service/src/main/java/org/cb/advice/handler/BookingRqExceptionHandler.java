@@ -2,6 +2,7 @@ package org.cb.advice.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.cb.Messages;
+import org.cb.utils.Utils;
 import org.cb.base.rs.ErrorRs;
 import org.cb.bookings.constants.ErrorCodes;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,7 @@ public class BookingRqExceptionHandler {
     public ResponseEntity<ProblemDetail> methodArgumentNotValidException(
                     MethodArgumentNotValidException ex) {
         List<ErrorRs> errors = ex.getBindingResult().getAllErrors().stream()
-                        .map(err -> new ErrorRs(HttpStatus.BAD_REQUEST.getReasonPhrase(),
-                                        err.getDefaultMessage())).toList();
+                        .map(err -> Utils.populateErrorRSs(err.getDefaultMessage(), messages)).toList();
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
         problemDetail.setTitle(ErrorCodes.EC_INVALID_INPUT);
         problemDetail.setDetail(messages.getErrorProperties(ErrorCodes.EC_INVALID_INPUT));

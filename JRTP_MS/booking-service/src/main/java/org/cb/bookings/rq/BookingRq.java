@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.cb.bookings.constants.ErrorCodes;
 import org.cb.bookings.enums.BookingStatus;
 import org.springframework.validation.annotation.Validated;
 
@@ -23,25 +24,25 @@ public class BookingRq {
 
     private UUID id;
 
-    @NotNull(message = "Please Enter User id")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_USER_ID)
     private String userId;
 
-    @NotNull(message = "Please Enter Movie id")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_MOVIE_ID)
     private Integer movieId;
 
-    @NotNull(message = "User must have booked at least 1 seat")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_SEATS)
     private List<String> seatsBooked;
 
-    @NotNull(message = "Please Enter show date")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_SHOW_DATE)
     private LocalDate showDate;
 
-    @NotNull(message = "Please Enter show time")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_SHOW_TIME)
     private LocalTime showTime;
 
     private BookingStatus status;
 
-    @NotNull(message = "Booking amount is mandatory")
-    @Positive(message = "Amount must be greater than zero")
+    @NotNull(message = ErrorCodes.EC_REQUIRED_BOOKING_AMOUNT)
+    @Positive(message = ErrorCodes.EC_INVALID_BOOKING_AMOUNT)
     private Double amount;
 
 }
