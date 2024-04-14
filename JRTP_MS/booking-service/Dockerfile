@@ -1,6 +1,6 @@
-FROM openjdk:17-alpine
+FROM openjdk:17-jdk-slim
 
-ARG JAR_FILE=target/booking-service.jar
+ARG JAR_FILE=./target/booking-service.jar
 
 ADD ${JAR_FILE} bookingservice.jar
 

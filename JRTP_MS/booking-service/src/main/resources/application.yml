@@ -9,9 +9,9 @@ spring:
         name: ${APP_NAME:BOOKING-SERVICE}
     datasource:
 #        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/bookingservice?createDatabaseIfNotExist=true
+        url: jdbc:mysql://host.docker.internal:3306/bookingservice?createDatabaseIfNotExist=true
         username: root
-        password: root
+        password:
     jpa:
         hibernate:
           ddl-auto: create
@@ -21,4 +21,4 @@ management:
     endpoints:
         web:
             exposure:
-                exclude: "*"
+                include: "*"

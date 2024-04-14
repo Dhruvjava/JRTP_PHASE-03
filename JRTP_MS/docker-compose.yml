@@ -28,6 +28,7 @@ services:
     depends_on:
       eureka-server:
         condition: service_healthy
+#    network_mode: host
   payment-service:
     build: ./payment-service
     container_name: payment-service

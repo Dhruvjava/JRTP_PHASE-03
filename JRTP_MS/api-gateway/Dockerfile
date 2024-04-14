@@ -1,6 +1,6 @@
-FROM openjdk:17-alpine
+FROM openjdk:17
 
-ARG JAR_FILE=/target/api-gateway.jar
+ARG JAR_FILE=.//target/api-gateway.jar
 
 ADD ${JAR_FILE} apigateway.jar
 
