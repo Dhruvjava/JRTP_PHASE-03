@@ -20,7 +20,7 @@ management:
   endpoints:
     web:
       exposure:
-        exclude: "*"
+        include: "*"
   health:
     livenessstate:
       enabled: true

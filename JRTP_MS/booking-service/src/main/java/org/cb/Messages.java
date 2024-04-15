@@ -1,7 +1,7 @@
 package org.cb;
 
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Component;
@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 import java.util.Locale;
 
 @Component
-@RequiredArgsConstructor
 public class Messages {
 
-    private final MessageSource errorSource;
+    @Autowired
+    private MessageSource errorSource;
 
-    private final MessageSource messageSource;
+    @Autowired
+    private MessageSource messageSource;
 
     private MessageSourceAccessor errorSourceAccessor;
 

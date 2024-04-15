@@ -28,6 +28,8 @@ services:
     depends_on:
       eureka-server:
         condition: service_healthy
+      payment-service:
+        condition: service_healthy
 #    network_mode: host
   payment-service:
     build: ./payment-service
@@ -38,11 +40,17 @@ services:
       - SERVER_PORT=9090
       - APP_NAME=PAYMENT-SERVICE
       - EUREKA_URL=http://eureka-server:8761/eureka
+    healthcheck:
+      test: "curl --fail --silent localhost:9090/actuator/health/readiness | grep UP || exit 0"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
     depends_on:
       eureka-server:
         condition: service_healthy
   notification-service:
-    build: ./notification-service
+    build: ./Notification-service
     container_name: notification-service
     ports:
       - "7070:7070"
@@ -58,6 +66,12 @@ services:
     container_name: api-gateway
     ports:
       - "80:80"
+    healthcheck:
+      test: "curl --fail --silent localhost:80/actuator/health/readiness | grep UP || exit 0"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
     environment:
       - SERVER_PORT=80
       - APP_NAME=API-GATEWAY
@@ -65,3 +79,7 @@ services:
     depends_on:
       eureka-server:
         condition: service_healthy
+      payment-service:
+        condition: service_healthy
+#      booking-service:
+#        condition: service_healthy

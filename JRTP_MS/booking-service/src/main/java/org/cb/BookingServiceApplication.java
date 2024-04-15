@@ -22,10 +22,10 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 @EnableFeignClients
 @OpenAPIDefinition(info = @Info(summary = "BOOKING-SERVICE",
                 description = "This service is a booking module functionality.",
-                contact = @Contact(name = "CodeBrain Pvt. Ltd.", url = "http://www.codebrain.com/",
+                contact = @Contact(name = "CodeBrain Pvt. Ltd.", url = "https://www.codebrain.com/",
                                 email = "mailto:info@codebrain.com"),
                 license = @License(name = "MIT License",
-                                url = "http://www.opensource.org/licenses/mit-license"),
+                                url = "https://www.opensource.org/licenses/mit-license"),
                 termsOfService = "Movie Booking Term & Conditions"),
                 servers = {@Server(description = "Movie Booking Local Environment",
                                 url = "http://localhost:8080")},

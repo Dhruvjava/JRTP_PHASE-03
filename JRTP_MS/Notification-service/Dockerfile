@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:17-jdk-slim
 
 ARG JAR_FILE=./target/notification-service.jar
 ADD ${JAR_FILE} notificationservice.jar

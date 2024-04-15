@@ -55,6 +55,8 @@ public class LocalDateTimeUtils implements Serializable {
 
     public static final String dd_MMM_yyyy_HH_00 = "dd-MMM-yyyy HH:'00'";
 
+    public static final String dd_MMM_yyyy = "dd-MMM-yyyy";
+
     public static final String dd_MMM_yyyy_HH_mm_ss = "dd-MMM-yyyy HH:mm:ss";
 
     public static final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
