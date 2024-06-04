@@ -2,7 +2,10 @@ package org.cb.bookings.entity;
 
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.cb.bookings.enums.BookingStatus;
 
 import java.time.LocalDate;
@@ -11,8 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,7 +22,7 @@ import java.util.UUID;
 public class BookingBO {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
 
@@ -30,7 +32,8 @@ public class BookingBO {
     @Column(name = "movie_id")
     private Integer movieId;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "booked_seats", joinColumns = @JoinColumn(name = "idFk"))
     private List<String> seatsSelected;
 
     @Column(name = "show_date")

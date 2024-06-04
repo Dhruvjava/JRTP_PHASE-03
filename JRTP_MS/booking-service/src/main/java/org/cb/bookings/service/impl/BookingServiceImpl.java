@@ -6,7 +6,7 @@ import org.cb.Messages;
 import org.cb.base.datars.BaseDataRs;
 import org.cb.bookings.constants.MessageCodes;
 import org.cb.bookings.datars.BookingDataRs;
-import org.cb.bookings.entity.Booking;
+import org.cb.bookings.entity.BookingBO;
 import org.cb.bookings.enums.BookingStatus;
 import org.cb.bookings.mapper.BookingMapper;
 import org.cb.bookings.repo.IBookingRepo;
@@ -31,7 +31,7 @@ public class BookingServiceImpl implements IBookingService {
         Optional.of(log.isDebugEnabled())
                         .ifPresent(l -> log.debug("Executing createBooking(BookingRq) -> "));
         try {
-            Booking booking = Booking.builder().bookingAmount(rq.getAmount())
+            BookingBO booking = BookingBO.builder().bookingAmount(rq.getAmount())
                             .seatsSelected(rq.getSeatsBooked()).bookingStatus(BookingStatus.PENDING)
                             .movieId(rq.getMovieId()).userId(rq.getUserId())
                             .showDate(rq.getShowDate()).showTime(rq.getShowTime()).build();

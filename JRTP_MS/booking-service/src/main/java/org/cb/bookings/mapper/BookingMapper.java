@@ -1,7 +1,7 @@
 package org.cb.bookings.mapper;
 
 import lombok.extern.slf4j.Slf4j;
-import org.cb.bookings.entity.Booking;
+import org.cb.bookings.entity.BookingBO;
 import org.cb.bookings.rs.BookingRs;
 import org.cb.utils.LocalDateTimeUtils;
 import org.cb.utils.Utils;
@@ -14,7 +14,7 @@ public class BookingMapper {
     private BookingMapper() {
     }
 
-    public static BookingRs mapToBookingRs(Booking booking) {
+    public static BookingRs mapToBookingRs(BookingBO booking) {
         Optional.of(log.isDebugEnabled())
                         .ifPresent(l -> log.debug("Executing mapToBookingRs(Booking) -> "));
         try {

@@ -1,12 +1,27 @@
+#=====================================
+# Server Config
+#=====================================
+server:
+  port: ${SERVER_PORT:8080}
+
+#========================================================
+#Eureka Config
+#========================================================
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
-server:
-  port: ${SERVER_PORT:8080}
+
+#=========================================================
+# Application Config
+#=========================================================
 spring:
     application:
         name: ${APP_NAME:BOOKING-SERVICE}
+
+#==========================================================
+# Database Config
+#==========================================================
     datasource:
 #        driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://host.docker.internal:3306/bookingservice?createDatabaseIfNotExist=true
@@ -16,7 +31,9 @@ spring:
         hibernate:
           ddl-auto: create
         show-sql: true
-
+#===================================================================================
+# Actuator Config
+#===================================================================================
 management:
   endpoints:
     web:

@@ -1,2 +1,4 @@
-package org.cb.bookings.constants;public interface BookingConstants {
+package org.cb.bookings.constants;
+
+public interface BookingConstants {
 }
