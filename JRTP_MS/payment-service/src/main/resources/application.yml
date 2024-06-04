@@ -1,13 +1,25 @@
-eureka:
-    client:
-        service-url:
-            defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+# App Config
 server:
     port: ${SERVER_PORT:9090}
 spring:
     application:
         name: ${APP_NAME:PAYMENT-SERVICE}
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://host.docker.internal:3306/paymentservice?createDatabaseIfNotExist=true
+        username: root
+        password: root
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: create
 
+# Eureka Server
+eureka:
+    client:
+        service-url:
+            defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+# Actuator Config
 management:
     endpoints:
         web:

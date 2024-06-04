@@ -1,19 +1,26 @@
-package org.cb.payment.rq;
+package org.cb.payment.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.*;
 import org.cb.payment.enums.PaymentStatus;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PaymentRq {
+@Entity
+@Table(name = "payments")
+public class PaymentBO {
+
+    @Id
+    private String id;
 
     private UUID bookingId;
 
