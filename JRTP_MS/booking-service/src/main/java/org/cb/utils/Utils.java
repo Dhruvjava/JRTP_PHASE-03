@@ -1,9 +1,9 @@
 package org.cb.utils;
 
-import org.cb.Messages;
-import org.cb.base.rs.ErrorRs;
-import org.cb.constants.StringConstants;
+import com.cb.base.rs.ErrorRs;
 import lombok.extern.slf4j.Slf4j;
+import org.cb.Messages;
+import org.cb.constants.StringConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,8 @@ import java.util.regex.Pattern;
 @Slf4j
 public class Utils {
 
-    private static final Pattern EMAIL_PATTERN_REGIX = Pattern.compile("^([A-Za-z0-9_.-]+)@([\\da-z\\.-]+)\\.([a-z]{2,})$");
+    private static final Pattern EMAIL_PATTERN_REGIX =
+                    Pattern.compile("^([A-Za-z0-9_.-]+)@([\\da-z\\.-]+)\\.([a-z]{2,})$");
 
     public static boolean isEmpty(String str) {
         return (((null == str) || (str.trim().isEmpty())) ? true : false);

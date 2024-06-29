@@ -1,10 +1,10 @@
 package org.cb.bookings.datars;
 
+import com.cb.base.datars.BaseDataRs;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.cb.base.datars.BaseDataRs;
 import org.cb.bookings.rs.BookingRs;
 
 @Setter
