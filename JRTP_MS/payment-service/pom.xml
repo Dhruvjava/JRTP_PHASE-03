@@ -71,6 +71,11 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.cb</groupId>
+			<artifactId>booking-commons</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
