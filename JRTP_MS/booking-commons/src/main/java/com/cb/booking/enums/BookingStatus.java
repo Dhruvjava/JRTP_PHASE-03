@@ -1,4 +1,4 @@
-package org.cb.bookings.enums;
+package com.cb.booking.enums;
 
 public enum BookingStatus {
 

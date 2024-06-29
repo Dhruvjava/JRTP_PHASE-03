@@ -1,14 +1,12 @@
-package org.cb.bookings.rs;
+package com.cb.booking.rs;
 
+import com.cb.booking.enums.BookingStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.cb.bookings.enums.BookingStatus;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
