@@ -1,13 +1,10 @@
 package org.cb.payment.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.cb.payment.enums.PaymentStatus;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.UUID;
 
 @Setter
@@ -20,7 +17,8 @@ import java.util.UUID;
 public class PaymentBO {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
 
     private UUID bookingId;
 
